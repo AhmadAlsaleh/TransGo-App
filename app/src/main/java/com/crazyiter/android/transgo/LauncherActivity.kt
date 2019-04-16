@@ -1,5 +1,6 @@
 package com.crazyiter.android.transgo
 
+import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -21,18 +22,17 @@ class LauncherActivity : AppCompatActivity() {
     }
 
     private fun setupApp() {
-        val sharedPreferences = getSharedPreferences(TIPS, 0)
+        val sharedPreferences = getSharedPreferences(TIPS, Context.MODE_PRIVATE)
         if (sharedPreferences.getBoolean(IS_FIRST, true)) {
             goToTips()
         } else {
-//            startActivity(Intent(this, MainActivity::class.java))
-            startActivity(Intent(this, QRActivity::class.java))
+            startActivity(Intent(this, MainActivity::class.java))
         }
         finish()
     }
 
     private fun goToTips() {
-        val sharedPreferencesEditor = getSharedPreferences(TIPS, 0).edit()
+        val sharedPreferencesEditor = getSharedPreferences(TIPS, Context.MODE_PRIVATE).edit()
         sharedPreferencesEditor.putBoolean(IS_FIRST, false)
         sharedPreferencesEditor.apply()
         startActivity(Intent(this, TipsActivity::class.java))

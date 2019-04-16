@@ -61,8 +61,8 @@ class TipsActivity : AppCompatActivity() {
     }
 
     private fun setupMainApp() {
-        finish()
         startActivity(Intent(this, MainActivity::class.java))
+        finish()
     }
 
     private fun setPagerPoint(position: Int) {

@@ -1,2 +1,0 @@
-configurations.maybeCreate("default")
-artifacts.add("default", file('play-services-vision-15.0.2.aar'))
